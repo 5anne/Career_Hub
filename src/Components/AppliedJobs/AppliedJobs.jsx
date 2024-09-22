@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { getStoredJobApplication } from "../../Utility/localStorage.js";
+import { Helmet } from "react-helmet";
 
 
 const AppliedJobs = () => {
     const jobs = useLoaderData();
+    console.log(jobs);
     const [appliedJobs, setAppliedJobs] = useState([]);
     const [displayJobs, setDisplayJobs] = useState([]);
     useEffect(() => {
@@ -30,6 +32,9 @@ const AppliedJobs = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>Career Hub | Applied Jobs</title>
+            </Helmet>
             <h2 className="text-center font-bold text-2xl text-black">Job I applied: {appliedJobs.length}</h2>
             <details className="dropdown">
                 <summary className="m-1 btn">Filter</summary>
